@@ -19,16 +19,16 @@ Antes de executar os testes, certifique-se de ter todas as dependências instala
    ```bash
    rspec
 
-Instale as dependências do projeto:
+4. Instale as dependências do projeto:
    ```bash
    bundle install
 
-Configure o banco de dados de desenvolvimento:
+5. Configure o banco de dados de desenvolvimento:
    ```bash
    rails db:create
    rails db:migrate
 
-Inicie o servidor Rails:
+6. Inicie o servidor Rails:
    ```bash
    rails server
 
