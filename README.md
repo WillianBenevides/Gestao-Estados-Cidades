@@ -1,28 +1,34 @@
-<<<<<<< HEAD
-# README
+# Gestão de Estados e Cidades
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este é um projeto de aplicativo Rails para gerenciar estados e cidades.
 
-Things you may want to cover:
+## Como Executar os Testes
 
-* Ruby version
+Antes de executar os testes, certifique-se de ter todas as dependências instaladas e o banco de dados configurado corretamente.
 
-* System dependencies
+1. Instale as dependências do projeto:
+   ```bash
+   bundle install
 
-* Configuration
+2. Configure o banco de dados de teste:
 
-* Database creation
+rails db:create RAILS_ENV=test
+rails db:migrate RAILS_ENV=test
 
-* Database initialization
+3. Execute os testes usando RSpec:
+rspec
 
-* How to run the test suite
+Instale as dependências do projeto:
 
-* Services (job queues, cache servers, search engines, etc.)
+bundle install
 
-* Deployment instructions
+Configure o banco de dados de desenvolvimento:
 
-* ...
-=======
-# Gestao-Estados-Cidades
->>>>>>> 84dd30d3ac767d80d9863bed8e1ad29cb80d304c
+rails db:create
+rails db:migrate
+
+Inicie o servidor Rails:
+
+rails server
+
+O aplicativo estará disponível em http://localhost:3000.
