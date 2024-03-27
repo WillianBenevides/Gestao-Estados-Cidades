@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Estados e Cidades</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f7f7f7;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    form {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    select, input[type="text"] {
+      width: calc(50% - 5px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #fff;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    li:hover {
+      transform: translateY(-3px);
+    }
+
+    .city {
+      font-weight: bold;
+    }
+
+    .state {
+      color: #666;
+    }
+  </style>
+<head>
+<body>
+  <h1>Gestão de Estados e Cidades</h1>
+
+  <!-- Formulário de pesquisa -->
+  <form action="<%= cidades_path %>" method="get">
+    <label for="estado">Pesquisar por Estado:</label>
+    <select name="estado" id="estado">
+        <option value="">Selecione um Estado</option>
+        <% Estado.pluck(:nome).uniq.each do |nome_estado| %>
+        <option value="<%= nome_estado %>"><%= nome_estado %></option>
+        <% end %>
+    </select>
+
+    <label for="nome">Pesquisar por Nome:</label>
+    <input type="text" name="nome" id="nome" placeholder="Digite o nome da cidade">
+
+    <input type="submit" value="Pesquisar">
+  </form>
+
+  <!-- Lista de cidades -->
+  <ul>
+    <% @cidades.each do |cidade| %>
+      <li>
+        <span class="city"><%= cidade.nome %></span>, <span class="state"><%= cidade.estado.nome %></span>
+      </li>
+    <% end %>
+  </ul>
+</body>
+</html>

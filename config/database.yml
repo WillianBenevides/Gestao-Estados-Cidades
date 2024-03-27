@@ -1,0 +1,28 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: gestao_estados_development
+  username: wrod
+  password: root
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: gestao_estados_test
+  username: wrod
+  password: root
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: gestao_estados_production
+  username: wrod
+  password: root
+  host: localhost
+  port: 5432
